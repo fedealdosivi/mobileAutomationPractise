@@ -3,6 +3,9 @@ package mobile;
 import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.junit.Assert.assertEquals;
+
 public class TestTranslate extends MobileTest<translateHome> {
     @Override
     protected translateHome getInitialPage() {
@@ -19,7 +22,14 @@ public class TestTranslate extends MobileTest<translateHome> {
 
     @Test
     public void TestTranslate(){
-        
+        String result=getInitialPage()
+                .pressOkey()
+                .inputTextToTranslate()
+                .setTextToTranslate("hi")
+                .getResult();
+
+        assertEquals(result,"hola");
+
     }
 
 
