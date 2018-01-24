@@ -2,13 +2,13 @@ package mobile;
 
 import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import webdriver.mobile.MobileTest;
 
-import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.junit.Assert.assertEquals;
 
 public class TestTranslate extends MobileTest<translateHome> {
     @Override
-    protected translateHome getInitialPage() {
+    protected translateHome getInitialScreen() {
         return new translateHome();
     }
 
@@ -22,7 +22,7 @@ public class TestTranslate extends MobileTest<translateHome> {
 
     @Test
     public void TestTranslate(){
-        String result=getInitialPage()
+        String result=getInitialScreen()
                 .pressOkey()
                 .inputTextToTranslate()
                 .setTextToTranslate("hi")
