@@ -1,12 +1,13 @@
-package mobile;
+package webdriver.mobile;
 
-import components.PageBasicOps;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+import webdriver.CommonOperations;
 
-public class MobilePage extends PageBasicOps {
+public class Screen extends CommonOperations {
 
-    protected MobilePage() {
+    protected Screen() {
         PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
     }
+
 }

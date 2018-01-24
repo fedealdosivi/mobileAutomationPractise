@@ -1,25 +1,26 @@
-package components;
+package webdriver;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import webdriver.web.Browser;
+import webdriver.web.SeleniumServerBoot;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public enum ContextDriver {
+public enum Context {
 
     INSTANCE;
 
-    private static final ThreadLocal<WebDriver> driver_thread=new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> DRIVERS_PER_THREAD = new ThreadLocal<>();
 
-    public WebDriver getDriver(){
-        return driver_thread.get();
+    public WebDriver getDriver() {
+        return DRIVERS_PER_THREAD.get();
     }
 
-    WebDriver init(Browser browser) throws MalformedURLException {
-
+    public WebDriver init(Browser browser) throws MalformedURLException {
         terminate(); // Just in case we have an existing driver running in the same thread
 
         browser.initialize();
@@ -30,37 +31,35 @@ public enum ContextDriver {
 
         WebDriver driver = new RemoteWebDriver(url, browser.getCapabilities());
 
-        driver_thread.set(driver);
+        DRIVERS_PER_THREAD.set(driver);
 
         return driver;
     }
-
 
     public WebDriver init(Capabilities capabilities) throws MalformedURLException {
 
-        URL url = new URL(System.getProperty("WEB_DRIVER_URL", "http://127.0.0.1:4723/wd/hub"));
+        URL url = new URL(System.getProperty("APPIUM_URL", "http://127.0.0.1:4723/wd/hub"));
 
         return init(url, capabilities);
-
     }
 
-    public WebDriver init(URL webDriverServer, Capabilities capabilities) throws MalformedURLException {
+    public WebDriver init(URL url, Capabilities capabilities) {
 
-        terminate(); // Just in case we have an existing driver running in the same thread
+        terminate();
 
-        WebDriver driver = new AppiumDriver<>(webDriverServer, capabilities);
+        WebDriver driver = new AppiumDriver<>(url, capabilities);
 
-        driver_thread.set(driver);
+        DRIVERS_PER_THREAD.set(driver);
 
         return driver;
     }
 
-        public void terminate() {
+    public void terminate() {
         WebDriver driver = getDriver();
         if (driver != null) {
             getDriver().quit();
         }
-        driver_thread.remove();
-    }
+        DRIVERS_PER_THREAD.remove();
 
+    }
 }
