@@ -19,10 +19,11 @@ public class translateForm extends translatePage {
     private MobileElement resultSelector;
 
     public translateForm(){
-        waitFor(visibilityOfAllElements(Arrays.asList(textToTranslate,textTranslated,resultSelector)));
+        waitFor(visibilityOfAllElements(Arrays.asList(textToTranslate)));
     }
 
     public translateForm setTextToTranslate(String text){
+        type(textToTranslate,text);
         return this;
     }
 

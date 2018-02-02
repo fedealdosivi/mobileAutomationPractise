@@ -21,12 +21,13 @@ public class TestTranslate extends MobileTest<translateHome> {
     @Test
     public void TestTranslate(){
         String result=getInitialScreen()
-                .pressOkey()
+                .pressDone()
+                .pressHome()
                 .inputTextToTranslate()
                 .setTextToTranslate("hi")
                 .getResult();
 
-        assertEquals(result,"hola");
+        assertEquals(result,"Hola");
 
     }
 

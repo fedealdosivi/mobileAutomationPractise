@@ -9,17 +9,20 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllE
 
 public class translateHome extends translatePage {
 
-    @AndroidFindBy(id = ANDROID_PREFIX + "onboarding_checkbox_description")
+    @AndroidFindBy(id = ANDROID_PREFIX + "button_done")
     private MobileElement okeyPopUpBtn;
 
     @AndroidFindBy(id = ANDROID_PREFIX + "online_state_bg")
     private MobileElement textTranslate;
 
+    @AndroidFindBy(id= ANDROID_PREFIX + "design_menu_item_text")
+    private MobileElement home;
+
     public translateHome(){
-        waitFor(visibilityOfAllElements(Arrays.asList(okeyPopUpBtn, textTranslate)));
+        waitFor(visibilityOfAllElements(Arrays.asList(okeyPopUpBtn)));
     }
 
-    public translateHome pressOkey(){
+    public translateHome pressDone(){
         click(okeyPopUpBtn);
         return this;
     }
@@ -35,5 +38,10 @@ public class translateHome extends translatePage {
     public translateForm inputTextToTranslate(){
         click(textTranslate);
         return new translateForm();
+    }
+
+    public translateHome pressHome() {
+        click(home);
+        return this;
     }
 }
