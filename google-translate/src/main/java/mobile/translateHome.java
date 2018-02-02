@@ -18,6 +18,9 @@ public class translateHome extends translatePage {
     @AndroidFindBy(id= ANDROID_PREFIX + "design_menu_item_text")
     private MobileElement home;
 
+    @AndroidFindBy(id = ANDROID_PREFIX+ "picker2")
+    private MobileElement languagePicker2;
+
     public translateHome(){
         waitFor(visibilityOfAllElements(Arrays.asList(okeyPopUpBtn)));
     }
@@ -25,14 +28,6 @@ public class translateHome extends translatePage {
     public translateHome pressDone(){
         click(okeyPopUpBtn);
         return this;
-    }
-
-    public MobileElement getTextTranslate() {
-        return textTranslate;
-    }
-
-    public void setTextTranslate(MobileElement textTranslate) {
-        this.textTranslate = textTranslate;
     }
 
     public translateForm inputTextToTranslate(){
@@ -44,4 +39,10 @@ public class translateHome extends translatePage {
         click(home);
         return this;
     }
+
+    public selectTranslateLanguage clickPicker2(){
+        click(languagePicker2);
+        return new selectTranslateLanguage();
+    }
+
 }
