@@ -21,6 +21,9 @@ public class translateHome extends translatePage {
     @AndroidFindBy(id = ANDROID_PREFIX+ "picker2")
     private MobileElement languagePicker2;
 
+    @AndroidFindBy(id= ANDROID_PREFIX+"img_card_txt_bottom1")
+    private MobileElement takeTour;
+
     public translateHome(){
         waitFor(visibilityOfAllElements(Arrays.asList(okeyPopUpBtn)));
     }
@@ -38,6 +41,11 @@ public class translateHome extends translatePage {
     public translateHome pressHome() {
         click(home);
         return this;
+    }
+
+    public translateTour pressTakeTour(){
+        click(takeTour);
+        return new translateTour();
     }
 
     public selectTranslateLanguage clickPicker2(){

@@ -28,7 +28,15 @@ public class TestTranslate extends MobileTest<translateHome> {
                 .getResult();
 
         assertEquals(result,"Hola");
+    }
 
+    @Test
+    public  void TestTakeTour(){
+       getInitialScreen()
+                .pressDone()
+                .pressHome()
+                .pressTakeTour()
+                .pressLater();
     }
 
 
