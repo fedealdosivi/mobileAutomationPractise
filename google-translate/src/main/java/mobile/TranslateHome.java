@@ -1,14 +1,12 @@
 package mobile;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
 
-import java.util.Arrays;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
-
-public class translateHome extends translatePage {
+public class TranslateHome extends TranslatePage {
 
     @AndroidFindBy(id = ANDROID_PREFIX + "button_done")
     private MobileElement okeyPopUpBtn;
@@ -25,41 +23,44 @@ public class translateHome extends translatePage {
     @AndroidFindBy(id= ANDROID_PREFIX+"img_card_txt_bottom1")
     private MobileElement takeTour;
 
-    public translateHome(){
+    public TranslateHome(){
 
     }
 
-    public translateHome pressDone(){
+    public TranslateHome pressDone(){
         click(okeyPopUpBtn);
         return this;
     }
 
-    public translateForm inputTextToTranslate(){
+    public TranslateForm inputTextToTranslate(){
         click(textTranslate);
-        return new translateForm();
+        return new TranslateForm();
     }
 
-    public translateHome pressHome() {
+    public TranslateHome pressHome() {
         click(home);
         return this;
     }
 
-    public translateTour pressTakeTour(){
+    public TranslateTour pressTakeTour(){
         click(takeTour);
-        return new translateTour();
+        return new TranslateTour();
     }
 
-    public selectTranslateLanguage clickPicker2(){
+    public TranslateSelectLanguage clickPicker2(){
         click(languagePicker2);
-        return new selectTranslateLanguage();
+        return new TranslateSelectLanguage();
     }
 
-    public boolean verifyTourIsNotShown() {
-        if (takeTour==null){
-            return true;
+    public String verifyTourIsNotShown() {
+        try {
+        if(takeTour.getText()!=null){
+            return "Its here";
+        }else {
+            return "Not shown";
         }
-        else {
-            return false;
+        }catch (Exception e){
+            return "Not shown";
         }
     }
 }

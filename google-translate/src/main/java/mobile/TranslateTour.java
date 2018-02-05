@@ -7,17 +7,17 @@ import java.util.Arrays;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
 
-public class translateTour extends translatePage{
+public class TranslateTour extends TranslatePage {
 
     @AndroidFindBy (id = "copydrop_welcome_turn_on_btn")
     private MobileElement btnTurnOn;
 
-    public translateTour(){
+    public TranslateTour(){
         waitFor(visibilityOfAllElements(Arrays.asList(btnTurnOn)));
     }
 
-    public translateHome pressLater(){
+    public TranslateHome pressLater(){
         click(btnTurnOn);
-        return new translateHome();
+        return new TranslateHome();
     }
 }

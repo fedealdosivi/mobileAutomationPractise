@@ -1,17 +1,16 @@
 package mobile;
 
 import org.junit.Test;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import webdriver.mobile.MobileTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TestTranslate extends MobileTest<translateHome> {
+public class TestTranslate extends MobileTest<TranslateHome> {
     @Override
-    protected translateHome getInitialScreen() {
-        return new translateHome();
+    protected TranslateHome getInitialScreen() {
+        return new TranslateHome();
     }
 
     @Override
@@ -34,14 +33,13 @@ public class TestTranslate extends MobileTest<translateHome> {
 
     @Test
     public void TestTakeTour(){
-
-           getInitialScreen()
+        String result=getInitialScreen()
                    .pressDone()
                    .pressHome()
                    .pressTakeTour()
                    .pressLater()
                    .verifyTourIsNotShown();
-
+        assertEquals(result,"Not shown");
     }
 
 

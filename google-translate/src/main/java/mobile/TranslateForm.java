@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
 
-public class translateForm extends translatePage {
+public class TranslateForm extends TranslatePage {
 
     @AndroidFindBy(id = ANDROID_PREFIX + "edit_input")
     private MobileElement textToTranslate;
@@ -18,11 +18,11 @@ public class translateForm extends translatePage {
     @AndroidFindBy(id = ANDROID_PREFIX + "result_selector")
     private MobileElement resultSelector;
 
-    public translateForm(){
+    public TranslateForm(){
         waitFor(visibilityOfAllElements(Arrays.asList(textToTranslate)));
     }
 
-    public translateForm setTextToTranslate(String text){
+    public TranslateForm setTextToTranslate(String text){
         type(textToTranslate,text);
         return this;
     }
