@@ -55,6 +55,11 @@ public class translateHome extends translatePage {
     }
 
     public boolean verifyTourIsNotShown() {
-        return takeTour.isDisplayed();
+        if (takeTour==null){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

@@ -34,18 +34,15 @@ public class TestTranslate extends MobileTest<translateHome> {
 
     @Test
     public void TestTakeTour(){
-       try {
+
            getInitialScreen()
                    .pressDone()
                    .pressHome()
                    .pressTakeTour()
                    .pressLater()
                    .verifyTourIsNotShown();
-       }catch(NoSuchElementException E){
-            assertTrue(true);
-        }
-    }
 
+    }
 
 
 }
