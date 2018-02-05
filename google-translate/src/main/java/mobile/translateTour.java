@@ -9,14 +9,15 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllE
 
 public class translateTour extends translatePage{
 
-    @AndroidFindBy (id = "drop_welcome_dismiss_btn")
-    private MobileElement btnLater;
+    @AndroidFindBy (id = "copydrop_welcome_turn_on_btn")
+    private MobileElement btnTurnOn;
 
     public translateTour(){
-        waitFor(visibilityOfAllElements(Arrays.asList(btnLater)));
+        waitFor(visibilityOfAllElements(Arrays.asList(btnTurnOn)));
     }
 
-    public void pressLater(){
-        click(btnLater);
+    public translateHome pressLater(){
+        click(btnTurnOn);
+        return new translateHome();
     }
 }

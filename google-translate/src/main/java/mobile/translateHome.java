@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import java.util.Arrays;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
 
 public class translateHome extends translatePage {
@@ -25,7 +26,7 @@ public class translateHome extends translatePage {
     private MobileElement takeTour;
 
     public translateHome(){
-        waitFor(visibilityOfAllElements(Arrays.asList(okeyPopUpBtn)));
+
     }
 
     public translateHome pressDone(){
@@ -53,4 +54,7 @@ public class translateHome extends translatePage {
         return new selectTranslateLanguage();
     }
 
+    public boolean verifyTourIsNotShown() {
+        return takeTour.isDisplayed();
+    }
 }

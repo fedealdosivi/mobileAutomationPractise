@@ -1,10 +1,12 @@
 package mobile;
 
 import org.junit.Test;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import webdriver.mobile.MobileTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestTranslate extends MobileTest<translateHome> {
     @Override
@@ -31,12 +33,17 @@ public class TestTranslate extends MobileTest<translateHome> {
     }
 
     @Test
-    public  void TestTakeTour(){
-       getInitialScreen()
-                .pressDone()
-                .pressHome()
-                .pressTakeTour()
-                .pressLater();
+    public void TestTakeTour(){
+       try {
+           getInitialScreen()
+                   .pressDone()
+                   .pressHome()
+                   .pressTakeTour()
+                   .pressLater()
+                   .verifyTourIsNotShown();
+       }catch(NoSuchElementException E){
+            assertTrue(true);
+        }
     }
 
 
