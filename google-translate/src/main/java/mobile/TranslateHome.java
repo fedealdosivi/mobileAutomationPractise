@@ -23,6 +23,9 @@ public class TranslateHome extends TranslatePage {
     @AndroidFindBy(id= ANDROID_PREFIX+"img_card_txt_bottom1")
     private MobileElement takeTour;
 
+    @AndroidFindBy(id = ANDROID_PREFIX + "btn_star")
+    private MobileElement star;
+
     public TranslateHome(){
 
     }
@@ -62,5 +65,10 @@ public class TranslateHome extends TranslatePage {
         }catch (Exception e){
             return "Not shown";
         }
+    }
+
+    public TranslateHome addToPhrasebook(){
+        click(star);
+        return this;
     }
 }

@@ -42,5 +42,15 @@ public class TestTranslate extends MobileTest<TranslateHome> {
         assertEquals(result,"Not shown");
     }
 
+    @Test
+    public void TestPhrasebook(){
+        getInitialScreen()
+                .pressDone()
+                .pressHome()
+                .inputTextToTranslate()
+                .setTextToTranslate("hi");
+
+    }
+
 
 }
