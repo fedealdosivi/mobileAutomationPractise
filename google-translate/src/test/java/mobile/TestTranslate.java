@@ -22,6 +22,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     @Test
     public void TestTranslate(){
         String result=getInitialScreen()
+                .selectFirstLanguage("Filipino")
                 .pressTranslateOffline()
                 .pressDone()
                 .pressHome()
@@ -90,6 +91,5 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
                 .pressDone()
                 .pressHelp();
     }
-
 
 }

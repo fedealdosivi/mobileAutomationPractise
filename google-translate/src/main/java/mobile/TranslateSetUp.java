@@ -38,6 +38,11 @@ public class TranslateSetUp extends TranslatePage{
 
     public TranslateSetUp selectFirstLanguage(String language){
         click(firstLanguage);
+        for (MobileElement langaugeToSelect : languages) {
+            langaugeToSelect.getText().equals(language);
+            click(langaugeToSelect);
+        }
+
         return this;
     }
 
