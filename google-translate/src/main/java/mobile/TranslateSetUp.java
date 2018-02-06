@@ -37,12 +37,12 @@ public class TranslateSetUp extends TranslatePage{
 
     public TranslateSetUpLanguageSelect selectFirstLanguage(String language){
         click(firstLanguage);
-        return new TranslateSetUpLanguageSelect();
+        return new TranslateSetUpLanguageSelect(language);
     }
 
     public TranslateSetUpLanguageSelect selectSecondLanguage(String language){
         click(secondLanguage);
-        return new TranslateSetUpLanguageSelect();
+        return new TranslateSetUpLanguageSelect(language);
     }
 
     public TranslateSetUp scrollToTheTopOfSelectLanguage(){

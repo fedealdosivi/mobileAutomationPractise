@@ -8,21 +8,22 @@ import webdriver.mobile.MobileComponent;
 
 import java.util.List;
 
-public class TranslateSetUpLanguageSelect extends MobileComponent{
+public class TranslateSetUpLanguageSelect extends TranslatePage{
 
     @AndroidFindBy(className = "android.widget.CheckedTextView")
     private List<MobileElement> languages;
 
     private String stringLanguage;
 
-    public TranslateSetUpLanguageSelect(WebElement container) {
-        super(container);
+    public TranslateSetUpLanguageSelect(String language) {
+        stringLanguage = language;
     }
 
     public TranslateSetUp selectLanguage(){
         for (MobileElement languageToSelect : languages) {
             if(languageToSelect.getText().equals(stringLanguage)){
                 click(languageToSelect);
+                break;
             }
         }
         return new TranslateSetUp();
