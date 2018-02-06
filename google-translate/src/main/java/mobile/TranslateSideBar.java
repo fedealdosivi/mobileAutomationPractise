@@ -28,13 +28,32 @@ public class TranslateSideBar extends TranslatePage{
     private MobileElement helpFeedback;
 
     public TranslateSideBar(){
-        waitFor(visibilityOfAllElements(Arrays.asList(home,phrasebook,smsTranslation,offlineTranslation,
-                settings,helpFeedback)));
+
     }
 
     public TranslateHome pressHome(){
         click(home);
         return new TranslateHome();
+    }
+
+    public void pressPhrasebook(){
+        click(phrasebook);
+    }
+
+    public void pressSMS(){
+        click(smsTranslation);
+    }
+
+    public void pressOffline(){
+        click(offlineTranslation);
+    }
+
+    public void pressSettings(){
+        click(settings);
+    }
+
+    public void pressHelp(){
+        click(helpFeedback);
     }
 
 

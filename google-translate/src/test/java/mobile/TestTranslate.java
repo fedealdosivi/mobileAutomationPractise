@@ -7,10 +7,10 @@ import webdriver.mobile.MobileTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TestTranslate extends MobileTest<TranslateHome> {
+public class TestTranslate extends MobileTest<TranslateSetUp> {
     @Override
-    protected TranslateHome getInitialScreen() {
-        return new TranslateHome();
+    protected TranslateSetUp getInitialScreen() {
+        return new TranslateSetUp();
     }
 
     @Override
@@ -22,13 +22,14 @@ public class TestTranslate extends MobileTest<TranslateHome> {
     @Test
     public void TestTranslate(){
         String result=getInitialScreen()
+                .pressTranslateOffline()
                 .pressDone()
                 .pressHome()
                 .inputTextToTranslate()
                 .setTextToTranslate("hi")
                 .getResult();
 
-        assertEquals(result,"Hola");
+        assertEquals("Hola",result);
     }
 
     @Test
@@ -39,17 +40,42 @@ public class TestTranslate extends MobileTest<TranslateHome> {
                    .pressTakeTour()
                    .pressLater()
                    .verifyTourIsNotShown();
-        assertEquals(result,"Not shown");
+        assertEquals("Not shown",result);
     }
 
     @Test
     public void TestPhrasebook(){
         getInitialScreen()
                 .pressDone()
-                .pressHome()
-                .inputTextToTranslate()
-                .setTextToTranslate("hi");
+                .pressPhrasebook();
+    }
 
+    @Test
+    public void TestSMS(){
+        getInitialScreen()
+                .pressDone()
+                .pressSMS();
+    }
+
+    @Test
+    public void TestOffline(){
+        getInitialScreen()
+                .pressDone()
+                .pressOffline();
+    }
+
+    @Test
+    public void TestSettings(){
+        getInitialScreen()
+                .pressDone()
+                .pressSettings();
+    }
+
+    @Test
+    public void TestHelp(){
+        getInitialScreen()
+                .pressDone()
+                .pressHelp();
     }
 
 

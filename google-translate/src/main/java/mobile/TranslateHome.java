@@ -8,14 +8,8 @@ import org.openqa.selenium.By;
 
 public class TranslateHome extends TranslatePage {
 
-    @AndroidFindBy(id = ANDROID_PREFIX + "button_done")
-    private MobileElement okeyPopUpBtn;
-
     @AndroidFindBy(id = ANDROID_PREFIX + "online_state_bg")
     private MobileElement textTranslate;
-
-    @AndroidFindBy(id= ANDROID_PREFIX + "design_menu_item_text")
-    private MobileElement home;
 
     @AndroidFindBy(id = ANDROID_PREFIX+ "picker2")
     private MobileElement languagePicker2;
@@ -30,19 +24,9 @@ public class TranslateHome extends TranslatePage {
 
     }
 
-    public TranslateHome pressDone(){
-        click(okeyPopUpBtn);
-        return this;
-    }
-
     public TranslateForm inputTextToTranslate(){
         click(textTranslate);
         return new TranslateForm();
-    }
-
-    public TranslateHome pressHome() {
-        click(home);
-        return this;
     }
 
     public TranslateTour pressTakeTour(){
