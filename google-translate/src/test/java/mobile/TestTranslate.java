@@ -22,7 +22,8 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     @Test
     public void TestTranslate(){
         String result=getInitialScreen()
-                .selectFirstLanguage("Filipino")
+                .selectFirstLanguage("Finnish")
+                .selectSecondLanguage("Thai")
                 .pressTranslateOffline()
                 .pressDone()
                 .pressHome()
@@ -30,7 +31,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
                 .setTextToTranslate("hi")
                 .getResult();
 
-        assertEquals("Hola",result);
+        assertEquals("Hej",result);
     }
 
     @Test

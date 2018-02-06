@@ -38,9 +38,9 @@ public class TranslateSetUp extends TranslatePage{
 
     public TranslateSetUp selectFirstLanguage(String language){
         click(firstLanguage);
-        for (MobileElement langaugeToSelect : languages) {
-            langaugeToSelect.getText().equals(language);
-            click(langaugeToSelect);
+        for (MobileElement languageToSelect : languages) {
+            languageToSelect.getText().equals(language);
+            click(languageToSelect);
         }
 
         return this;
@@ -48,6 +48,14 @@ public class TranslateSetUp extends TranslatePage{
 
     public TranslateSetUp selectSecondLanguage(String language){
         click(secondLanguage);
+        for (MobileElement languageToSelect:languages){
+            languageToSelect.getText().equals(language);
+            click(languageToSelect);
+        }
+        return this;
+    }
+
+    public TranslateSetUp scrollToTheTopOfSelectLanguage(){
         return this;
     }
 }
