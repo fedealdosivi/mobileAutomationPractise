@@ -27,6 +27,11 @@ public class TranslateForm extends TranslatePage {
         return this;
     }
 
+    public TranslateHome pressSelect(){
+        click(resultSelector);
+        return new TranslateHome();
+    }
+
     public String getResult(){
         return getText(textTranslated);
     }

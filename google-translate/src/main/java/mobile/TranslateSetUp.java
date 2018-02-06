@@ -3,6 +3,8 @@ package mobile;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
+import java.util.List;
+
 public class TranslateSetUp extends TranslatePage{
 
     @AndroidFindBy(id = ANDROID_PREFIX + "button_done")
@@ -16,6 +18,9 @@ public class TranslateSetUp extends TranslatePage{
 
     @AndroidFindBy(id = "translation_lang_spinner")
     private MobileElement secondLanguage;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView")
+    private List<MobileElement> languages;
 
     public TranslateSetUp(){
 
@@ -32,6 +37,7 @@ public class TranslateSetUp extends TranslatePage{
     }
 
     public TranslateSetUp selectFirstLanguage(String language){
+        click(firstLanguage);
         return this;
     }
 

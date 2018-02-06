@@ -44,6 +44,19 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     }
 
     @Test
+    public void TestAddPhrase(){
+        getInitialScreen()
+                .pressTranslateOffline()
+                .pressDone()
+                .pressHome()
+                .inputTextToTranslate()
+                .setTextToTranslate("ant")
+                .pressSelect()
+                .addToPhrasebook();
+
+    }
+
+    @Test
     public void TestPhrasebook(){
         getInitialScreen()
                 .pressDone()

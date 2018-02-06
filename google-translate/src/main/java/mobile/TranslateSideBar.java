@@ -12,19 +12,19 @@ public class TranslateSideBar extends TranslatePage{
     @AndroidFindBy(id = ANDROID_PREFIX +"design_menu_item_text")
     private MobileElement home;
 
-    @AndroidFindBy(id = ANDROID_PREFIX +"")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.FrameLayout[2]/android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[2]/android.widget.CheckedTextView")
     private MobileElement phrasebook;
 
-    @AndroidFindBy(id = ANDROID_PREFIX +"btn_camera")
+    @AndroidFindBy(xpath = "\t/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.FrameLayout[2]/android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[3]/android.widget.CheckedTextView")
     private MobileElement smsTranslation;
 
-    @AndroidFindBy(id = ANDROID_PREFIX +"")
+    @AndroidFindBy(xpath = "\t/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.FrameLayout[2]/android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[4]/android.widget.CheckedTextView")
     private MobileElement offlineTranslation;
 
-    @AndroidFindBy(id = ANDROID_PREFIX +"img_card_txt_body")
+    @AndroidFindBy(xpath = "\t/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.FrameLayout[2]/android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[5]/android.widget.CheckedTextView")
     private MobileElement settings;
 
-    @AndroidFindBy(id = ANDROID_PREFIX +"img_card_txt_bottom1")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.FrameLayout[2]/android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[6]/android.widget.CheckedTextView")
     private MobileElement helpFeedback;
 
     public TranslateSideBar(){
