@@ -1,4 +1,4 @@
-package webdriver.web;
+package webdriver;
 
 import org.openqa.selenium.remote.server.SeleniumServer;
 import ch.qos.logback.classic.Level;
@@ -10,9 +10,6 @@ import org.openqa.grid.internal.utils.configuration.StandaloneConfiguration;
 
 import java.util.logging.LogManager;
 
-/**
- * Created by Facundo on 10/11/2017.
- */
 public enum SeleniumServerBoot {
 
     INSTANCE;

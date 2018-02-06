@@ -4,8 +4,6 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import webdriver.web.Browser;
-import webdriver.web.SeleniumServerBoot;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,22 +16,6 @@ public enum Context {
 
     public WebDriver getDriver() {
         return DRIVERS_PER_THREAD.get();
-    }
-
-    public WebDriver init(Browser browser) throws MalformedURLException {
-        terminate(); // Just in case we have an existing driver running in the same thread
-
-        browser.initialize();
-
-        SeleniumServerBoot.INSTANCE.start();
-
-        URL url = new URL(System.getProperty("SELENIUM_URL", "http://127.0.0.1:4444/wd/hub"));
-
-        WebDriver driver = new RemoteWebDriver(url, browser.getCapabilities());
-
-        DRIVERS_PER_THREAD.set(driver);
-
-        return driver;
     }
 
     public WebDriver init(Capabilities capabilities) throws MalformedURLException {
