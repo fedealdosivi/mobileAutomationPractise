@@ -23,7 +23,9 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     public void TestTranslate(){
         String result=getInitialScreen()
                 .selectFirstLanguage("Finnish")
-                .selectSecondLanguage("Thai")
+                .selectLanguage()
+                .selectSecondLanguage("Swedish")
+                .selectLanguage()
                 .pressTranslateOffline()
                 .pressDone()
                 .pressHome()

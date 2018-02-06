@@ -17,11 +17,9 @@ public class TranslateSetUp extends TranslatePage{
     @AndroidFindBy(id = "primary_lang_spinner")
     private MobileElement firstLanguage;
 
-    @AndroidFindBy(className = "android.widget.TextView[2]")
+    @AndroidFindBy(id = "translation_lang_spinner")
     private MobileElement secondLanguage;
 
-    @AndroidFindBy(className = "android.widget.CheckedTextView")
-    private List<MobileElement> languages;
 
     public TranslateSetUp(){
 
@@ -37,25 +35,14 @@ public class TranslateSetUp extends TranslatePage{
         return this;
     }
 
-    public TranslateSetUp selectFirstLanguage(String language){
+    public TranslateSetUpLanguageSelect selectFirstLanguage(String language){
         click(firstLanguage);
-        for (MobileElement languageToSelect : languages) {
-            if(languageToSelect.getText().equals(language)){
-                click(languageToSelect);
-            }
-        }
-
-        return this;
+        return new TranslateSetUpLanguageSelect();
     }
 
-    public TranslateSetUp selectSecondLanguage(String language){
+    public TranslateSetUpLanguageSelect selectSecondLanguage(String language){
         click(secondLanguage);
-        for (MobileElement languageToSelect:languages){
-            if(languageToSelect.getText().equals(language)) {
-                click(languageToSelect);
-            }
-        }
-        return this;
+        return new TranslateSetUpLanguageSelect();
     }
 
     public TranslateSetUp scrollToTheTopOfSelectLanguage(){
