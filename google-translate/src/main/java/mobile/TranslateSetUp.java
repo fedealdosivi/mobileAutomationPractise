@@ -2,6 +2,7 @@ package mobile;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -16,10 +17,10 @@ public class TranslateSetUp extends TranslatePage{
     @AndroidFindBy(id = "primary_lang_spinner")
     private MobileElement firstLanguage;
 
-    @AndroidFindBy(id = "translation_lang_spinner")
+    @AndroidFindBy(className = "android.widget.TextView[2]")
     private MobileElement secondLanguage;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView")
+    @AndroidFindBy(className = "android.widget.CheckedTextView")
     private List<MobileElement> languages;
 
     public TranslateSetUp(){
@@ -39,8 +40,9 @@ public class TranslateSetUp extends TranslatePage{
     public TranslateSetUp selectFirstLanguage(String language){
         click(firstLanguage);
         for (MobileElement languageToSelect : languages) {
-            languageToSelect.getText().equals(language);
-            click(languageToSelect);
+            if(languageToSelect.getText().equals(language)){
+                click(languageToSelect);
+            }
         }
 
         return this;
@@ -49,8 +51,9 @@ public class TranslateSetUp extends TranslatePage{
     public TranslateSetUp selectSecondLanguage(String language){
         click(secondLanguage);
         for (MobileElement languageToSelect:languages){
-            languageToSelect.getText().equals(language);
-            click(languageToSelect);
+            if(languageToSelect.getText().equals(language)) {
+                click(languageToSelect);
+            }
         }
         return this;
     }
