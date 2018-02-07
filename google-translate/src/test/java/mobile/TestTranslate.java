@@ -1,5 +1,7 @@
 package mobile;
 
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
 import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import webdriver.mobile.MobileTest;
@@ -59,6 +61,14 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
                 .pressSelect()
                 .addToPhrasebook();
 
+    }
+
+    @Test
+    public void TestTouchAction(){
+        getInitialScreen()
+                .pressTranslateOffline()
+                .pressDone()
+                .pressTouch(900,500);
     }
 
     @Test

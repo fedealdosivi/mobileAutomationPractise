@@ -2,10 +2,13 @@ package webdriver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -58,6 +61,15 @@ public abstract class CommonOperations {
     protected String getText(MobileElement element) {
         waitFor(visibilityOf(element));
         return element.getText();
+    }
+
+    protected CommonOperations touch(int x, int y){
+        try {
+            TouchAction touchAction = new TouchAction(PerformsTouchActions.class.newInstance()).tap(x,y);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return this;
     }
 
     protected <T> void waitFor(ExpectedCondition<T> condition) {
