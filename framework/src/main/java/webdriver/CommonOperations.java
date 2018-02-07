@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
@@ -65,16 +67,18 @@ public abstract class CommonOperations {
 
     protected CommonOperations touch(int x, int y){
         try {
-            TouchAction touchAction = new TouchAction(PerformsTouchActions.class.newInstance()).tap(x,y);
+            TouchAction touch = new TouchAction(this.getDriver());
+            touch.tap(x,y).perform().release();
         }catch (Exception e){
             e.printStackTrace();
         }
         return this;
     }
 
-    protected CommonOperations scroll(int x,int y){
+    protected CommonOperations scroll(MobileElement element,int x,int y){
         try {
-            TouchAction touchAction=new TouchAction(PerformsTouchActions.class.newInstance()).moveTo(x,y);
+            TouchAction touchAction=new TouchAction(getDriver());
+            touchAction.waitAction(Duration.ofMillis(10)).moveTo(element,x,y).perform().release();
         }catch (Exception e){
             e.printStackTrace();
         }

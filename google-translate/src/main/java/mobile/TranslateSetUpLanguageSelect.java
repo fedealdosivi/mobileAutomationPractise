@@ -13,6 +13,9 @@ public class TranslateSetUpLanguageSelect extends TranslatePage{
     @AndroidFindBy(className = "android.widget.CheckedTextView")
     private List<MobileElement> languages;
 
+    @AndroidFindBy(className = "android.widget.ListView")
+    private  MobileElement allLanguages;
+
     private String stringLanguage;
 
     public TranslateSetUpLanguageSelect(String language) {
@@ -20,6 +23,7 @@ public class TranslateSetUpLanguageSelect extends TranslatePage{
     }
 
     public TranslateSetUp selectLanguage(){
+        scrollLanguages(allLanguages);
         for (MobileElement languageToSelect : languages) {
             if(languageToSelect.getText().equals(stringLanguage)){
                 click(languageToSelect);
@@ -29,8 +33,8 @@ public class TranslateSetUpLanguageSelect extends TranslatePage{
         return new TranslateSetUp();
     }
 
-    public TranslateSetUpLanguageSelect scrollLanguages(int y) {
-        scroll(540,300);
+    public TranslateSetUpLanguageSelect scrollLanguages(MobileElement element) {
+        scroll(element,929,1343);
         return this;
     }
 }
