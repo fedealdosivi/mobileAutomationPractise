@@ -27,7 +27,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
                 .searchSecondLanguage("Swedish")
                 .selectLanguage()
                 .pressTranslateOffline()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressHome()
                 .inputTextToTranslate()
                 .setTextToTranslate("hi")
@@ -40,7 +40,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     public void TestTakeTour(){
         String result=getInitialScreen()
                    .pressTranslateOffline()
-                   .pressDone()
+                   .pressDoneToSideBar()
                    .pressHome()
                    .pressTakeTour()
                    .pressLater()
@@ -52,7 +52,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     public void TestAddPhrase(){
         getInitialScreen()
                 .pressTranslateOffline()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressHome()
                 .inputTextToTranslate()
                 .setTextToTranslate("ant")
@@ -65,7 +65,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     public void TestTouchAction(){
         getInitialScreen()
                 .pressTranslateOffline()
-                .pressDone2()
+                .pressDoneToHome()
                 .pressTouch(1000,500)
                 .inputTextToTranslate()
                 .setTextToTranslate("ant")
@@ -74,46 +74,57 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     }
 
     @Test
+    public void TestTouchOpenSideBar(){
+        getInitialScreen()
+                .pressTranslateOffline()
+                .pressDoneToSideBar()
+                .pressHome()
+                .pressTouchSideBar()
+                .pressHome()
+                .inputTextToTranslate()
+                .setTextToTranslate("hi")
+                .pressSelect();
+    }
+
+    @Test
     public void TestScrollAction(){
         getInitialScreen()
                 .pressTranslateOffline()
-                .searchFirstLanguage("Georgian")
-                .scrollLanguages(300)
-                .selectLanguage();
+                .searchFirstLanguage("Georgian");
     }
 
     @Test
     public void TestPhrasebook(){
         getInitialScreen()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressPhrasebook();
     }
 
     @Test
     public void TestSMS(){
         getInitialScreen()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressSMS();
     }
 
     @Test
     public void TestOffline(){
         getInitialScreen()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressOffline();
     }
 
     @Test
     public void TestSettings(){
         getInitialScreen()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressSettings();
     }
 
     @Test
     public void TestHelp(){
         getInitialScreen()
-                .pressDone()
+                .pressDoneToSideBar()
                 .pressHelp();
     }
 

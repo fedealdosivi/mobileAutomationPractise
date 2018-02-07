@@ -25,12 +25,12 @@ public class TranslateSetUp extends TranslatePage{
 
     }
 
-    public TranslateSideBar pressDone(){
+    public TranslateSideBar pressDoneToSideBar(){
         click(okeyPopUpBtn);
         return new TranslateSideBar();
     }
 
-    public TranslateHome pressDone2(){
+    public TranslateHome pressDoneToHome(){
         click(okeyPopUpBtn);
         return new TranslateHome();
     }

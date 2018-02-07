@@ -36,11 +36,6 @@ public class TranslateSideBar extends TranslatePage{
         return new TranslateHome();
     }
 
-    public TranslateHome pressTouch(int x, int y){
-        touch(x,y);
-        return new TranslateHome();
-    }
-
     public void pressPhrasebook(){
         click(phrasebook);
     }

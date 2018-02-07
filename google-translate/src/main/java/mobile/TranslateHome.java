@@ -44,6 +44,11 @@ public class TranslateHome extends TranslatePage {
         return this;
     }
 
+    public TranslateSideBar pressTouchSideBar(){
+        touch(0,43);
+        return new TranslateSideBar();
+    }
+
     public String verifyTourIsNotShown() {
         try {
         if(takeTour.getText()!=null){
