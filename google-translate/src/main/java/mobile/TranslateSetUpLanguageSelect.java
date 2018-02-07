@@ -34,7 +34,9 @@ public class TranslateSetUpLanguageSelect extends TranslatePage{
     }
 
     public TranslateSetUpLanguageSelect scrollLanguages(MobileElement element) {
-        scroll(element,929,1343);
+        int x = element.getSize().width;
+        int y =  element.getSize().height;
+        scroll(element,x,y);
         return this;
     }
 }
