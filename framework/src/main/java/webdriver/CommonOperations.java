@@ -1,5 +1,7 @@
 package webdriver;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -14,46 +16,46 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public abstract class CommonOperations {
 
-    protected WebDriver getDriver() {
+    protected AppiumDriver getDriver() {
         return Context.INSTANCE.getDriver();
     }
 
-    protected CommonOperations selectByText(WebElement element, String text) {
+    protected CommonOperations selectByText(MobileElement element, String text) {
         waitFor(visibilityOf(element));
         new Select(element).selectByVisibleText(text);
         return this;
     }
 
-    protected CommonOperations sendKeys(WebElement element, String text) {
+    protected CommonOperations sendKeys(MobileElement element, String text) {
         waitFor(visibilityOf(element));
         element.sendKeys(text);
         return this;
     }
 
-    protected CommonOperations selectByValue(WebElement element, String value) {
+    protected CommonOperations selectByValue(MobileElement element, String value) {
         waitFor(visibilityOf(element));
         new Select(element).selectByValue(value);
         return this;
     }
 
-    protected CommonOperations selectByIndex(WebElement element, int index) {
+    protected CommonOperations selectByIndex(MobileElement element, int index) {
         waitFor(visibilityOf(element));
         new Select(element).selectByIndex(index);
         return this;
     }
 
-    protected CommonOperations type(WebElement element, String text) {
+    protected CommonOperations type(MobileElement element, String text) {
         waitFor(visibilityOf(element));
         element.sendKeys(text);
         return this;
     }
 
-    protected void click(WebElement element) {
+    protected void click(MobileElement element) {
         waitFor(elementToBeClickable(element));
         element.click();
     }
 
-    protected String getText(WebElement element) {
+    protected String getText(MobileElement element) {
         waitFor(visibilityOf(element));
         return element.getText();
     }
