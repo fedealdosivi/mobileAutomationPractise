@@ -78,7 +78,7 @@ public abstract class CommonOperations {
     protected CommonOperations scroll(MobileElement element,int x,int y){
         try {
             TouchAction touchAction=new TouchAction(getDriver());
-            touchAction.press(element).waitAction(Duration.ofMillis(5000)).moveTo(element,x,y).release().perform();
+            touchAction.press(element).waitAction(Duration.ofMillis(5000)).moveTo(element,x,-y).release().perform();
         }catch (Exception e){
             e.printStackTrace();
         }
