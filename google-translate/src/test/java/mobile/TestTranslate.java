@@ -1,7 +1,5 @@
 package mobile;
 
-import io.appium.java_client.PerformsTouchActions;
-import io.appium.java_client.TouchAction;
 import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import webdriver.mobile.MobileTest;
@@ -24,9 +22,9 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     @Test
     public void TestTranslate(){
         String result=getInitialScreen()
-                .selectFirstLanguage("English")
+                .searchFirstLanguage("English")
                 .selectLanguage()
-                .selectSecondLanguage("Swedish")
+                .searchSecondLanguage("Swedish")
                 .selectLanguage()
                 .pressTranslateOffline()
                 .pressDone()
@@ -67,8 +65,21 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
     public void TestTouchAction(){
         getInitialScreen()
                 .pressTranslateOffline()
-                .pressDone()
-                .pressTouch(900,500);
+                .pressDone2()
+                .pressTouch(1000,500)
+                .inputTextToTranslate()
+                .setTextToTranslate("ant")
+                .pressSelect()
+                .addToPhrasebook();
+    }
+
+    @Test
+    public void TestScrollAction(){
+        getInitialScreen()
+                .pressTranslateOffline()
+                .searchFirstLanguage("Georgian")
+                .scrollLanguages(300)
+                .selectLanguage();
     }
 
     @Test

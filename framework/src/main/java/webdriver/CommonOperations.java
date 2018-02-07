@@ -72,6 +72,15 @@ public abstract class CommonOperations {
         return this;
     }
 
+    protected CommonOperations scroll(int x,int y){
+        try {
+            TouchAction touchAction=new TouchAction(PerformsTouchActions.class.newInstance()).moveTo(x,y);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return this;
+    }
+
     protected <T> void waitFor(ExpectedCondition<T> condition) {
         new FluentWait<>(getDriver())
                 .withTimeout(60, SECONDS)

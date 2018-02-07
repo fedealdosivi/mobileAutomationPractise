@@ -39,6 +39,11 @@ public class TranslateHome extends TranslatePage {
         return new TranslateSelectLanguage();
     }
 
+    public TranslateHome pressTouch(int x, int y){
+        touch(x,y);
+        return this;
+    }
+
     public String verifyTourIsNotShown() {
         try {
         if(takeTour.getText()!=null){

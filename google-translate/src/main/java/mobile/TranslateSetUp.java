@@ -30,22 +30,23 @@ public class TranslateSetUp extends TranslatePage{
         return new TranslateSideBar();
     }
 
+    public TranslateHome pressDone2(){
+        click(okeyPopUpBtn);
+        return new TranslateHome();
+    }
+
     public TranslateSetUp pressTranslateOffline(){
         click(checkOffline);
         return this;
     }
 
-    public TranslateSetUpLanguageSelect selectFirstLanguage(String language){
+    public TranslateSetUpLanguageSelect searchFirstLanguage(String language){
         click(firstLanguage);
         return new TranslateSetUpLanguageSelect(language);
     }
 
-    public TranslateSetUpLanguageSelect selectSecondLanguage(String language){
+    public TranslateSetUpLanguageSelect searchSecondLanguage(String language){
         click(secondLanguage);
         return new TranslateSetUpLanguageSelect(language);
-    }
-
-    public TranslateSetUp scrollToTheTopOfSelectLanguage(){
-        return this;
     }
 }

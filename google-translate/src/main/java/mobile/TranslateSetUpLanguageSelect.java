@@ -28,4 +28,9 @@ public class TranslateSetUpLanguageSelect extends TranslatePage{
         }
         return new TranslateSetUp();
     }
+
+    public TranslateSetUpLanguageSelect scrollLanguages(int y) {
+        scroll(540,300);
+        return this;
+    }
 }
