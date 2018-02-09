@@ -23,6 +23,15 @@ public class TranslateSetUpLanguageSelect extends TranslatePage{
     }
 
     public TranslateSetUp selectLanguage(){
+        for (MobileElement languageToSelect : languages) {
+            if(languageToSelect.getText().equals(stringLanguage)){
+                click(languageToSelect);
+                break;
+            }
+        }
+        return new TranslateSetUp();
+    }
+    public TranslateSetUp selectLanguageWithScroll(){
         scrollLanguages(allLanguages);
         for (MobileElement languageToSelect : languages) {
             if(languageToSelect.getText().equals(stringLanguage)){

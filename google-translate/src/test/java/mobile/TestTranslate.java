@@ -91,7 +91,7 @@ public class TestTranslate extends MobileTest<TranslateSetUp> {
         getInitialScreen()
                 .pressTranslateOffline()
                 .searchFirstLanguage("Georgian")
-                .selectLanguage()
+                .selectLanguageWithScroll()
                 .pressDoneToHome();
     }
 
